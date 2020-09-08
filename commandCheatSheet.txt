@@ -1,0 +1,21 @@
+make directory: mkdir [directoryname]
+create a file: touch [filename] 
+change directory: cd [directoryname]
+show what is in current directory: ls
+
+vim:
+to enter vim: vim [filename]
+get out of insert mode : esc
+save and quit: :wq
+quit (without saving): :q
+edit file (insert mode): i
+
+git:
+clone a repository: git clone [repositoryurl]
+add every file you have changed: git add .
+commit a change: git commit -m "message"
+pull master to your machine: git pull
+push to upstream branch: git push
+show changes you have made: git status
+show repository branches: git branch
+set upstream branch: git push --set-upstream origin [branchname]
