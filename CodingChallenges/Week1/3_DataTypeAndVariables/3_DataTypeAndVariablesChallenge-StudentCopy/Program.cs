@@ -26,6 +26,9 @@ namespace _3_DataTypeAndVariablesChallenge
           ushort myUShort = 65535;
           Console.WriteLine(myUShort);
 
+          long myLong = 92233720368547758;
+          Console.WriteLine(myLong);
+
           float myFloat = -31.1289f;
           Console.WriteLine(myFloat);
 
@@ -43,11 +46,18 @@ namespace _3_DataTypeAndVariablesChallenge
 
           string numText = "15";
           Console.WriteLine(Text2Num(numText));
+
+          decimal myDecimal = 3;
+          Console.WriteLine(myDecimal);
+
+          Console.WriteLine(Text2Num(numText));
       }
 
       public static int Text2Num(string numText)
       {
-        throw new NotImplementedException();
+        int result;
+        int.TryParse(numText, out result);
+        return result;
       }
     }
 }
