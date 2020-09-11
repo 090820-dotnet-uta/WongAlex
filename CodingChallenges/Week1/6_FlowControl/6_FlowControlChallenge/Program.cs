@@ -10,13 +10,29 @@ namespace _6_FlowControl
 
         static void Main(string[] args)
         {
+            Console.WriteLine(GetValidTemperature());
+            Register();
+            Login();
+            GetTemperatureTernary(GetValidTemperature());
         }
 
         // This method gets a valid temperaturebetween -40 asnd 135 inclusive 
         // and returns the valid int.
         public static int GetValidTemperature()
         {
-            return 1;
+            int temp;
+            bool valid;
+            do {
+                Console.WriteLine("Enter a valid temerature between -40 and 130 inclusive");
+ 
+                valid = int.TryParse(Console.ReadLine(), out temp);
+
+                if (!valid || temp < -40 || temp > 130) {
+                    Console.WriteLine("Not a valid temperature");
+                }
+            }  while (!valid || temp < -40 || temp > 130);
+           
+            return temp;
         }
 
         // This method has one int parameter
@@ -33,6 +49,25 @@ namespace _6_FlowControl
         // 100 <= n < 135 = hottest
         public static void GiveActivityAdvice(int temp)
         {
+            if (temp < -20) {
+                Console.WriteLine("hella cold");
+            } else if (temp >= -20 && temp < 0) {
+                Console.WriteLine("pretty cold");
+            } else if (temp >= 0 && temp < 20) {
+                Console.WriteLine("cold");
+            } else if (temp >= 20 && temp < 40) {
+                Console.WriteLine("thawed out");
+            } else if (temp >= 40 && temp < 60) {
+                Console.WriteLine("feels like Autumn");
+            } else if (temp >= 60 && temp < 80) {
+                Console.WriteLine("perfect outdoor workout temperature");
+            } else if (temp >= 80 && temp < 90) {
+                Console.WriteLine("niiice");
+            } else if (temp >= 90 && temp < 100) {
+                Console.WriteLine("hella hot");
+            } else if (temp >= 100 && temp < 135) {
+                Console.WriteLine("hottest");
+            }
         }
 
         // This method gets a username and password from the user
@@ -40,6 +75,15 @@ namespace _6_FlowControl
         // names in the method.
         public static void Register()
         {
+            Console.WriteLine("\n---Register a new account---\n");
+
+            Console.WriteLine("Please enter a username:");
+            username = Console.ReadLine();
+
+            Console.WriteLine("Please enter a password:");
+            password = Console.ReadLine();
+
+            Console.WriteLine("User saved");
         }
 
         // This method gets username and password from the user and
@@ -49,6 +93,21 @@ namespace _6_FlowControl
         // prompted again for the username and password.
         public static bool Login()
         {
+            string usernameInput;
+            string passwordInput;
+
+            do {
+                Console.WriteLine("\n---Login to your account---\n");
+
+                Console.WriteLine("Please enter your username:");
+                usernameInput = Console.ReadLine();
+
+                Console.WriteLine("Please enter your password:");
+                passwordInput = Console.ReadLine();
+
+            } while (usernameInput != username || passwordInput != password);
+
+            Console.WriteLine($"Welcome back {username}");
             return true;
         }
 
@@ -59,6 +118,11 @@ namespace _6_FlowControl
         // advice is given. 
         public static void GetTemperatureTernary(int temp)
         {
+            string result = temp <= 42 ? $"{temp} is too cold!" :
+                (temp >= 43 && temp <= 78) ?$"{temp} is an ok temperature" :
+                    $"{temp} is too hot!";
+
+            Console.WriteLine(result);
         }
     }//end of Program()
 }
