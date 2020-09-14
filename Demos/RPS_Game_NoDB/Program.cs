@@ -76,11 +76,7 @@ namespace RPS_Game_NoDB
 
             } while (choice != 2);//end of game loop
 
-
             PrintAllCurrentData(games, players, rounds);
-
-
-
 
             //on quitting....
             //print out the win.loss record for all players
